@@ -11,19 +11,11 @@ author = 52835609
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "pwd"
+args = "npm install"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npm run dev"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "ls"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd OTD-AI-SURVIVOR-Console"
 
 [deployment]
 run = ["sh", "-c", "npm start"]
@@ -31,4 +23,4 @@ deploymentTarget = "cloudrun"
 
 [[ports]]
 localPort = 5000
-externalPort = 80
+externalPort = 8080
