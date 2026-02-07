@@ -1,0 +1,34 @@
+modules = ["nodejs-20"]
+[agent]
+mockupState = "PENDING"
+
+[workflows]
+
+[[workflows.workflow]]
+name = "otd"
+mode = "sequential"
+author = 52835609
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pwd"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "ls"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd OTD-AI-SURVIVOR-Console"
+
+[deployment]
+run = ["sh", "-c", "npm start"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
